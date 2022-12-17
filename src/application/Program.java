@@ -24,6 +24,10 @@ public class Program {
 				System.out.print("Piece to Move: ");
 				ChessPosition origin = UI.readChessPosition(sc);
 				
+				boolean[][] possibleMoves = chessMatch.possibleMoves(origin);
+				UI.clearScreen();
+				UI.printBoard(chessMatch.getPieces(), possibleMoves);
+				
 				System.out.println();
 				System.out.print("Move to: ");
 				ChessPosition target = UI.readChessPosition(sc);
