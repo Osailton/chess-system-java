@@ -1,6 +1,5 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -211,7 +210,7 @@ public class ChessMatch {
 		}
 		if (!pieceCode.equals("B") && !pieceCode.equals("N")
 				&& !pieceCode.equals("R") && !pieceCode.equals("Q")) {
-			throw new InvalidParameterException("Invalid type for promotion!");
+			return this.promoted;
 		}
 		
 		Position position = this.promoted.getChessPosition().toPosition();
@@ -226,15 +225,14 @@ public class ChessMatch {
 	}
 	
 	private ChessPiece newPiece(String pieceCode, Color color) {
-		String code = pieceCode.toLowerCase();
 		switch (pieceCode) {
-		case "b": {
+		case "B": {
 			return new Bishop(this.board, color);
 		}
-		case "n": {
+		case "N": {
 			return new Knight(this.board, color);
 		}
-		case "r": {
+		case "R": {
 			return new Rook(this.board, color);
 		}
 		default:

@@ -42,7 +42,12 @@ public class Program {
 				
 				if (chessMatch.getPromoted() != null) {
 					System.out.print("Enter piece code for promotion (B/N/R/Q): ");
-					String pieceCode = sc.nextLine();
+					String pieceCode = sc.nextLine().toUpperCase();
+					while (!pieceCode.equals("B") && !pieceCode.equals("N")
+							&& !pieceCode.equals("R") && !pieceCode.equals("Q")) {
+						System.out.print("Ivalid value! Enter piece code for promotion (B/N/R/Q): ");
+						pieceCode = sc.nextLine().toUpperCase();
+					}
 					chessMatch.replacePromotedPiece(pieceCode);
 				}
 			} catch (ChessException e) {
